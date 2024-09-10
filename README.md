@@ -1,66 +1,23 @@
-## Foundry
+## Estverse NFTs
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+The EstverseNFTs contract is an ERC1155 token implementation with the following features:
 
-Foundry consists of:
+- Minting of NFTs with dynamic pricing
+- Royalty support (ERC2981)
+- Pausable functionality
+- Token locking/unlocking
+- Ownable with withdrawal function
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### Key Functions:
 
-## Documentation
-
-https://book.getfoundry.sh/
+- `mint(uint256 id)`: Mint an NFT
+- `setTokenUnlock(uint256 id, bool unlocked, uint256 basePrice)`: Set token availability and base price
+- `withdraw(address _addr)`: Withdraw contract balance to specified address
 
 ## Usage
 
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
 ### Deploy
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
 ```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+forge create EstverseNFTs --rpc-url <testnet-or-mainnet-url> --constructor-args <initialOwnerAddress> --interactive
 ```
